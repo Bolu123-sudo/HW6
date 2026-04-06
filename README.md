@@ -104,7 +104,7 @@ best[i][j] = max(
 )
 ```
 
-### Why it is correct
+### Why it is correct?
 Any optimal answer on prefixes must do one of three things: ignore the last character of `A`, ignore the last character of `B`, or match both last characters when they are equal. The recurrence checks exactly those possibilities and keeps the largest score, so each table entry is correct.
 
 ## Question 3: Pseudocode and Big-Oh
@@ -153,7 +153,7 @@ O(nm)
 ```
 
 ### Space
-The full table is stored, so the space complexity is:
+The space complexity is:
 ```text
 O(nm)
 ```
