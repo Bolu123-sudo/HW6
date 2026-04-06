@@ -3,14 +3,6 @@
 **Student Name:** Boluwatife Abegunde  
 **UFID:** 67949259
 
-## Summary
-This project finds a common subsequence of two strings whose total character score is as large as possible.
-Each character has a nonnegative weight, so the goal is to maximize total score rather than just the number of matched characters.
-
-The program prints:
-1. the best score
-2. one subsequence that achieves that score
-
 
 ## Build
 ```bash
@@ -23,7 +15,7 @@ This creates:
 ```
 
 ## Run
-Using redirected input:
+
 ```bash
 ./weighted_matcher < data/example.in
 ```
@@ -66,18 +58,10 @@ caab
 9
 cb
 ```
-
 The subsequence `cb` has score `5 + 4 = 9`.
 
 ## Question 1: Empirical Comparison
-I created 10 nontrivial inputs, each with string lengths at least 25.
-The generator intentionally varies:
-- alphabet size
-- character weights
-- string lengths
-- repetition patterns
-- shuffled shared blocks
-- mutation noise
+I created 10 nontrivial inputs, each with string lengths of at least 25. The generator varies alphabet size, character weights, string lengths, repetition patterns, shuffled shared blocks, and mutation noise across the inputs.
 
 Generate the 10 tests with:
 ```bash
@@ -90,14 +74,10 @@ python3 scripts/benchmark.py
 ```
 
 The benchmark script:
-- runs the solver on all 10 files
-- writes the matching `.out` files
-- stores timing data in `data/runtime_results.csv`
-- writes a dependency-free graph to `data/runtime_graph.svg`
-- optionally writes `data/runtime_graph.png` if `matplotlib` is installed
+The benchmark script runs the solver on all 10 files, writes the matching .out files, stores timing data in data/runtime_results.csv, and writes a dependency-free graph to data/runtime_graph.svg. 
 
 ### Runtime Discussion
-The measured growth follows the dynamic programming table size closely. Since the algorithm fills one table entry per pair of prefix positions, the amount of work scales with `|A| * |B|`, which gives the expected `O(nm)` runtime trend. Small timing variation is normal because operating-system scheduling and process startup overhead add noise to real measurements.
+The measured growth tracks closely with the DP table size. The algorithm fills one entry per pair of prefix positions, so total work scales with |A| * |B|, consistent with the expected O(nm) trend. Timing variation between runs is mostly noise from OS scheduling and process startup.
 
 ## Question 2: Recurrence Equation
 Let `best[i][j]` represent the maximum total score obtainable from the prefixes `A[0..i-1]` and `B[0..j-1]`.
@@ -167,7 +147,7 @@ solve(A, B, score):
 ```
 
 ### Runtime
-There are `(n + 1)(m + 1)` table entries, and each one is computed in constant time, so the runtime is:
+The runtime is:
 ```text
 O(nm)
 ```
@@ -183,7 +163,7 @@ O(nm)
 - input strings contain only characters listed in the scoring section
 - any optimal subsequence is acceptable when multiple answers have the same score
 
-## Reproducing Results
+
 You can reproduce with:
 ```bash
 make
