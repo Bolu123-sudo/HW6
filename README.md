@@ -1,7 +1,7 @@
 # COP 4533 Assignment 3
 
 **Student Name:** Boluwatife Abegunde  
-**UFID:** [replace with your UFID]
+**UFID:** 67949259
 
 ## Summary
 This project finds a common subsequence of two strings whose total character score is as large as possible.
@@ -11,25 +11,6 @@ The program prints:
 1. the best score
 2. one subsequence that achieves that score
 
-## Files
-```text
-.
-├── Makefile
-├── README.md
-├── src/
-│   └── solver_driver.cpp
-├── scripts/
-│   ├── benchmark.py
-│   └── generate_tests.py
-└── data/
-    ├── example.in
-    ├── example.out
-    ├── test1.in ... test10.in
-    ├── test1.out ... test10.out
-    ├── runtime_results.csv
-    ├── runtime_graph.svg
-    └── runtime_graph.png
-```
 
 ## Build
 ```bash
